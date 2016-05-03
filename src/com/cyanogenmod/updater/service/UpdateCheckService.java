@@ -296,6 +296,11 @@ public class UpdateCheckService extends IntentService
                 .setIncremental(obj.getString("incremental"))
                 .build();
 
+        if (!ui.getFileName().contains(Utils.getDeviceType())) {
+            Log.d(TAG, "Build " + ui.getFileName() + " is unrelated");
+            return null;
+        }
+
         if (!ui.isNewerThanInstalled()) {
             Log.d(TAG, "Build " + ui.getFileName() + " is older than the installed build");
             return null;

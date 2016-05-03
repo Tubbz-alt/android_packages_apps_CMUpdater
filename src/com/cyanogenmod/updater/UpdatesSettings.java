@@ -143,7 +143,7 @@ public class UpdatesSettings extends PreferenceActivity implements
         // Load the stored preference data
         mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (mUpdateCheck != null) {
-            int check = mPrefs.getInt(Constants.UPDATE_CHECK_PREF, Constants.UPDATE_FREQ_WEEKLY);
+            int check = mPrefs.getInt(Constants.UPDATE_CHECK_PREF, Constants.UPDATE_FREQ_DAILY);
             mUpdateCheck.setValue(String.valueOf(check));
             mUpdateCheck.setSummary(mapCheckValue(check));
             mUpdateCheck.setOnPreferenceChangeListener(this);
@@ -625,7 +625,7 @@ public class UpdatesSettings extends PreferenceActivity implements
         mUpdatesList.removeAll();
 
         // Convert the installed version name to the associated filename
-        String installedZip = "cm-" + Utils.getInstalledVersion() + ".zip";
+        String installedZip = "aopp-" + Utils.getInstalledVersion() + ".zip";
 
         // Determine installed incremental
         String installedIncremental = Utils.getIncremental();
